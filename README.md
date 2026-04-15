@@ -2,7 +2,7 @@
 
 Welcome to the official portfolio of **Denis Murithi** — a passionate Developer and Cybersecurity Researcher bridging the gap between functional design and robust, secure architecture.
 
-![Portfolio Preview][(https://denism.vercel.app)]
+![Portfolio Preview][https://denism.vercel.app]
 
 ## 🌟 About Me
 I am currently pursuing a **BSc in Computer Technology** at Meru University of Science and Technology. My focus lies at the intersection of high-performance software engineering and defensive/offensive security.
