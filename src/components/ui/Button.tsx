@@ -4,12 +4,16 @@ import { cn } from '@/lib/utils';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  as?: 'a' | 'button';
 }
 
 export const Button = ({
   className,
   variant = 'primary',
   size = 'md',
+  href,
+  as = 'button',
   ...props
 }: ButtonProps) => {
   const variants = {
@@ -25,14 +29,26 @@ export const Button = ({
     lg: 'px-8 py-4 text-lg',
   };
 
+  const commonClasses = cn(
+    'rounded-xl font-medium transition-all duration-300 active:scale-95 hover:scale-105 inline-flex items-center justify-center',
+    variants[variant],
+    sizes[size],
+    className
+  );
+
+  if (as === 'a' && href) {
+    return (
+      <a
+        href={href}
+        className={commonClasses}
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+      />
+    );
+  }
+
   return (
     <button
-      className={cn(
-        'rounded-xl font-medium transition-all duration-300 active:scale-95 hover:scale-105',
-        variants[variant],
-        sizes[size],
-        className
-      )}
+      className={commonClasses}
       {...props}
     />
   );

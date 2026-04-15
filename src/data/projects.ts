@@ -129,14 +129,14 @@ export const projectsMetadata: Record<string, ProjectMetadata> = {
   'nextjs-portfolio-pro': {
     repoName: 'nextjs-portfolio-pro',
     customTitle: 'High-Performance Portfolio',
-    tags: ['Mobile'],
+    tags: ['Web Apps'],
     liveDemo: 'https://denismurithi.dev',
     featured: true,
   },
   'react-admin-dashboard': {
     repoName: 'react-admin-dashboard',
     customTitle: 'Enterprise Analytics Dashboard',
-    tags: ['Mobile'],
+    tags: ['Web Apps'],
     featured: true,
   },
 
@@ -144,19 +144,19 @@ export const projectsMetadata: Record<string, ProjectMetadata> = {
   'spring-boot-inventory-system': {
     repoName: 'spring-boot-inventory-system',
     customTitle: 'Enterprise Inventory Manager',
-    tags: ['Mobile'],
+    tags: ['Web Apps'],
     featured: true,
   },
   'java-banking-api': {
     repoName: 'java-banking-api',
     customTitle: 'Secure Core Banking API',
-    tags: ['Mobile', 'Cybersecurity'],
+    tags: ['Web Apps', 'Cybersecurity'],
     featured: true,
   },
   'spring-security-auth-server': {
     repoName: 'spring-security-auth-server',
     customTitle: 'OAuth2 Authentication Server',
-    tags: ['Mobile', 'Cybersecurity'],
+    tags: ['Web Apps', 'Cybersecurity'],
     featured: true,
   },
 
