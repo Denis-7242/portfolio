@@ -6,7 +6,7 @@ import { Github, ExternalLink, Folder, Layers, Star, GitFork } from 'lucide-reac
 import { fetchHybridProjects, HybridProject } from '@/lib/github';
 import { Button } from '@/components/ui/Button';
 
-const CATEGORIES = ['All', 'Full Stack', 'Mobile', 'AI', 'Cybersecurity'];
+const CATEGORIES = ['All', 'Mobile', 'Web Apps', 'Cybersecurity'];
 
 const Projects = () => {
   const [projects, setProjects] = useState<HybridProject[]>([]);
@@ -31,6 +31,13 @@ const Projects = () => {
     ? projects
     : projects.filter(p => p.tags.some(tag => tag.toLowerCase().includes(filter.toLowerCase())));
 
+  // Sort to ensure featured projects appear first, then by star count
+  const sortedProjects = [...filteredProjects].sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return b.stargazers_count - a.stargazers_count;
+  });
+
   if (loading) {
     return (
       <section className="py-24 min-h-screen flex items-center justify-center">
@@ -52,7 +59,7 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            Featured <span className="text-blue-400">Projects</span>
+            My <span className="text-blue-400">Projects</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -70,10 +77,10 @@ const Projects = () => {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   filter === cat
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30 scale-105'
+                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white hover:scale-105'
                 }`}
               >
                 {cat}
@@ -87,7 +94,7 @@ const Projects = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode='popLayout'>
-            {filteredProjects.map((project) => (
+            {sortedProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -162,7 +169,25 @@ const Projects = () => {
           </AnimatePresence>
         </motion.div>
 
-        {filteredProjects.length === 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="flex justify-center mt-16"
+        >
+          <Button
+            variant="outline"
+            size="lg"
+            className="gap-2"
+            onClick={() => window.open('https://github.com/Denis-7242?tab=repositories', '_blank')}
+          >
+            View All Projects on GitHub
+            <ExternalLink className="w-4 h-4" />
+          </Button>
+        </motion.div>
+
+        {sortedProjects.length === 0 && (
           <div className="text-center py-20">
             <p className="text-gray-500">No projects found in this category.</p>
           </div>

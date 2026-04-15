@@ -29,7 +29,7 @@ const skillCategories = [
   {
     name: 'Databases',
     icon: <Database className="w-5 h-5" />,
-    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Prisma', 'Mongoose'],
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL'],
     color: 'text-yellow-400',
     bg: 'bg-yellow-400/10'
   },

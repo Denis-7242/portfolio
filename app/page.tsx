@@ -1,9 +1,9 @@
-import Hero from '@/src/sections/Hero';
-import About from '@/src/sections/About';
-import Skills from '@/src/sections/Skills';
-import Projects from '@/src/sections/Projects';
-import Experience from '@/src/sections/Experience';
-import Contact from '@/src/sections/Contact';
+import Hero from '@/sections/Hero';
+import About from '@/sections/About';
+import Skills from '@/sections/Skills';
+import Projects from '@/sections/Projects';
+import Experience from '@/sections/Experience';
+import Contact from '@/sections/Contact';
 
 export default function Page() {
   return (

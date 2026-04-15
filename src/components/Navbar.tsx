@@ -1,8 +1,10 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Button } from './Button';
+import { Button } from '@/components/ui/Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -28,9 +30,10 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="relative text-sm text-gray-300 hover:text-white transition-colors group"
               >
                 {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
             <Button variant="primary" size="sm" href="#contact" as="a">

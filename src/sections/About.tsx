@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, BookOpen, ShieldCheck, Cpu } from 'lucide-react';
+import { User, BookOpen, ShieldCheck, Cpu, Code, Smartphone } from 'lucide-react';
 
 const About = () => {
   return (
@@ -16,31 +16,52 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 p-1 shadow-2xl shadow-blue-500/20">
+            <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 p-1 shadow-2xl shadow-blue-500/20 overflow-hidden relative">
               <div className="w-full h-full rounded-2xl bg-black overflow-hidden relative group">
-                {/* Placeholder for actual image */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-700">
-                  <User className="w-32 h-32 opacity-20" />
+                {/* Blurred Background Layer for Depth */}
+                <div className="absolute inset-0 scale-110 blur-xl opacity-50">
+                  <img
+                    src="/assets/pic1.jpeg"
+                    alt="Denis Murithi Blur"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-6 left-6 right-6">
+
+                {/* Main Image Layer */}
+                <div className="absolute inset-0 z-10">
+                  <img
+                    src="/assets/pic1.jpeg"
+                    alt="Denis Murithi"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 z-20" />
+                <div className="absolute bottom-6 left-6 right-6 z-30">
                   <p className="text-white font-bold text-xl">Denis Murithi</p>
                   <p className="text-gray-400 text-sm">BSc Computer Technology</p>
                 </div>
               </div>
             </div>
-            {/* Floating Experience Card */}
-            <div className="absolute -bottom-6 -right-6 bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-xl shadow-xl hidden md:block">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-500/20 rounded-lg">
-                  <BookOpen className="w-5 h-5 text-blue-400" />
+            {/* Floating Education Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="absolute -bottom-10 -right-4 md:-bottom-6 md:-right-6 bg-white/10 backdrop-blur-2xl border border-white/20 p-5 rounded-2xl shadow-2xl hidden md:block group hover:border-blue-500/50 transition-all duration-500 z-20"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-blue-500/20 rounded-xl group-hover:bg-blue-500/40 transition-colors duration-300">
+                  <BookOpen className="w-6 h-6 text-blue-400" />
                 </div>
-                <div>
-                  <p className="text-xs text-gray-400 uppercase font-semibold">Education</p>
-                  <p className="text-sm font-medium">Meru University of Science and Technology</p>
+                <div className="flex flex-col">
+                  <p className="text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Academic Pursuits</p>
+                  <p className="text-sm font-bold text-white leading-tight">Meru University of Science and Technology</p>
+                  <p className="text-xs text-gray-400 font-medium">BSc Computer Technology</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div

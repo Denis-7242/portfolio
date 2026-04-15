@@ -13,9 +13,9 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/30',
-    secondary: 'bg-purple-600 text-white hover:bg-purple-700 shadow-lg shadow-purple-500/30',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white',
+    primary: 'bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30',
+    secondary: 'bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-500/30',
+    outline: 'border-2 border-blue-600/50 text-blue-400 hover:border-blue-600 hover:bg-blue-600 hover:text-white',
     ghost: 'text-gray-400 hover:text-white hover:bg-white/10',
   };
 
@@ -28,7 +28,7 @@ export const Button = ({
   return (
     <button
       className={cn(
-        'rounded-xl font-medium transition-all duration-200 active:scale-95',
+        'rounded-xl font-medium transition-all duration-300 active:scale-95 hover:scale-105',
         variants[variant],
         sizes[size],
         className
