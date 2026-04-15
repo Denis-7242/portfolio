@@ -1,4 +1,4 @@
-import { ProjectMetadata } from './data/projects';
+import { ProjectMetadata } from '../data/projects';
 
 export interface GitHubRepo {
   id: number;
