@@ -6,7 +6,7 @@ import { Calendar, CheckCircle2 } from 'lucide-react';
 
 const experiences = [
   {
-    year: '2023 - Present',
+    year: '2024 - Present',
     title: 'BSc Computer Technology Student',
     organization: 'Meru University of Science and Technology',
     description: 'Focusing on software engineering, network security, and advanced computing architectures.',
@@ -17,7 +17,7 @@ const experiences = [
     ],
   },
   {
-    year: '2021 - 2023',
+    year: '2025 - Present',
     title: 'Freelance Developer',
     organization: 'Self-Employed',
     description: 'Building custom software solutions for various clients, focusing on mobile and web platforms.',
