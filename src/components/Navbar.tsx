@@ -36,9 +36,11 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
-            <Button variant="primary" size="sm" href="#contact" as="a">
-              Contact Me
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button variant="primary" size="sm" href="#contact" as="a">
+                Contact Me
+              </Button>
+            </div>
           </div>
 
           <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
