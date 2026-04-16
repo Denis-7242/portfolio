@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <strong>Full Stack Developer | Android Engineer | Cybersecurity Researcher</strong><br />
+  <strong>Full Stack Developer | Android Developer | Cybersecurity Researcher</strong><br />
   Building secure, scalable systems and intelligent applications.
 </p>
 
