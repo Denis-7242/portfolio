@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Github, Star, GitFork, Layout, Code2, ShieldCheck } from 'lucide-react';
 
 interface GithubStatsProps {
-  username: string;
+  username?: string;
 }
 
 const StatCard = ({ icon: Icon, label, value, color }: { icon: any, label: string, value: number | string, color: string }) => {
