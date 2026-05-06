@@ -30,7 +30,7 @@ const About = () => {
           left: springX,
           top: springY,
         }}
-        className="absolute -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none z-0"
+        className="absolute -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none z-[-1]"
       />
 
       {/* Ambient Background Glows */}
