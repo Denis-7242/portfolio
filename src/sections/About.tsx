@@ -1,12 +1,38 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 import { BookOpen, ShieldCheck, Cpu, Code, Smartphone, Award } from 'lucide-react';
 
 const About = () => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 150 };
+  const springX = useSpring(mouseX, springConfig);
+  const springY = useSpring(mouseY, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
+
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-black text-white">
+    <section
+      id="about"
+      onMouseMove={handleMouseMove}
+      className="py-24 relative overflow-hidden bg-black text-white"
+    >
+      {/* Mouse-following Spotlight */}
+      <motion.div
+        style={{
+          left: springX,
+          top: springY,
+        }}
+        className="absolute -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none z-0"
+      />
+
       {/* Ambient Background Glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
