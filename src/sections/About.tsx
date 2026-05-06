@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 import { BookOpen, ShieldCheck, Cpu, Code, Smartphone, Award } from 'lucide-react';
 
@@ -30,7 +30,7 @@ const About = () => {
           left: springX,
           top: springY,
         }}
-        className="absolute -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none z-[-1]"
+        className="absolute -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none z-[-2]"
       />
 
       {/* Ambient Background Glows */}
