@@ -40,7 +40,6 @@ const skillCategories: Category[] = [
     skills: [
       { name: 'Node.js', icon: 'devicon-nodejs-plain' },
       { name: 'Express', icon: 'devicon-express-original' },
-      { name: 'Python', icon: 'devicon-python-plain' },
       { name: 'Java', icon: 'devicon-java-plain' },
     ],
   },
@@ -65,6 +64,8 @@ const skillCategories: Category[] = [
       { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
       { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
       { name: 'MySQL', icon: 'devicon-mysql-plain' },
+      { name: 'Supabase', icon: 'devicon-supabase-plain' },
+      { name: 'Firebase', icon: 'devicon-firebase-plain' },
     ],
   },
   {
