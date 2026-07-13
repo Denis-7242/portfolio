@@ -5,15 +5,21 @@ import GithubStats from '@/sections/GithubStats';
 import Projects from '@/sections/Projects';
 import Experience from '@/sections/Experience';
 import Contact from '@/sections/Contact';
+import { fetchHybridProjects, fetchGithubStats } from '@/lib/github';
 
-export default function Page() {
+export default async function Page() {
+  const [projects, stats] = await Promise.all([
+    fetchHybridProjects(),
+    fetchGithubStats('Denis-7242')
+  ]);
+
   return (
     <div className="flex flex-col gap-0">
       <Hero />
       <About />
       <Skills />
-      <GithubStats />
-      <Projects />
+      <GithubStats stats={stats} />
+      <Projects initialProjects={projects} />
       <Experience />
       <Contact />
     </div>

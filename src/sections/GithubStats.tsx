@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Star, GitFork, Layout, Code2, ShieldCheck } from 'lucide-react';
+import { GithubStats as GithubStatsType } from '@/lib/github';
 
 interface GithubStatsProps {
   username?: string;
+  stats: GithubStatsType;
 }
 
 const StatCard = ({ icon: Icon, label, value, color }: { icon: any, label: string, value: number | string, color: string }) => {
@@ -36,9 +38,9 @@ const StatCard = ({ icon: Icon, label, value, color }: { icon: any, label: strin
 };
 
 const CountUp = ({ value }: { value: number }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     let start = 0;
     const end = value;
     const duration = 2000;
@@ -60,50 +62,7 @@ const CountUp = ({ value }: { value: number }) => {
   return <span>{count}</span>;
 };
 
-const GithubStats = ({ username = 'Denis-7242' }: GithubStatsProps) => {
-  const [stats, setStats] = useState({
-    repos: 0,
-    stars: 0,
-    contributions: 0,
-    loading: true
-  });
-
-  useEffect(() => {
-    async function fetchStats() {
-      try {
-        // Fetch repos and stars
-        const repoRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
-        const repos = await repoRes.json();
-
-        const totalRepos = repos.length;
-        const totalStars = repos.reduce((acc: number, repo: any) => acc + (repo.stargazers_count || 0), 0);
-
-        // Mocking contributions as GitHub API requires GraphQL for accurate contribution counts
-        // In a real scenario, you'd use a GraphQL query here.
-        const contributions = 450 + Math.floor(Math.random() * 100);
-
-        setStats({
-          repos: totalRepos,
-          stars: totalStars,
-          contributions: contributions,
-          loading: false
-        });
-      } catch (error) {
-        console.error('Error fetching GitHub stats:', error);
-        setStats(prev => ({ ...prev, loading: false }));
-      }
-    }
-    fetchStats();
-  }, [username]);
-
-  if (stats.loading) {
-    return (
-      <div className="flex justify-center py-12">
-        <div className="w-10 h-10 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
-      </div>
-    );
-  }
-
+const GithubStats = ({ username = 'Denis-7242', stats }: GithubStatsProps) => {
   return (
     <section id="stats" className="py-24 relative overflow-hidden bg-black text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

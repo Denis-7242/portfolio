@@ -1,32 +1,21 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, Folder, Star, GitFork } from 'lucide-react';
-import { fetchHybridProjects, HybridProject } from '@/lib/github';
+import { HybridProject } from '@/lib/github';
 import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
 
 const CATEGORIES = ['Web Apps', 'Mobile Apps', 'Cybersecurity'];
 
-const Projects = () => {
-  const [projects, setProjects] = useState<HybridProject[]>([]);
-  const [filter, setFilter] = useState('Web Apps');
-  const [loading, setLoading] = useState(true);
+interface ProjectsProps {
+  initialProjects: HybridProject[];
+}
 
-  useEffect(() => {
-    async function loadProjects() {
-      try {
-        const data = await fetchHybridProjects();
-        setProjects(data);
-      } catch (error) {
-        console.error('Error loading projects:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadProjects();
-  }, []);
+const Projects = ({ initialProjects }: ProjectsProps) => {
+  const [projects] = useState<HybridProject[]>(initialProjects);
+  const [filter, setFilter] = useState('Web Apps');
 
   const filteredProjects = filter === 'All'
     ? projects
@@ -42,17 +31,6 @@ const Projects = () => {
     if (!a.featured && b.featured) return 1;
     return b.stargazers_count - a.stargazers_count;
   }).slice(0, 6); // Limit to 6 projects
-
-  if (loading) {
-    return (
-      <section className="py-24 min-h-screen flex items-center justify-center bg-black">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
-          <p className="text-gray-500 animate-pulse">Fetching repositories from GitHub...</p>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden bg-black text-white">

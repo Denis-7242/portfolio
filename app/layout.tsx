@@ -24,7 +24,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="bg-black text-white min-h-full flex flex-col selection:bg-blue-500/30">
+      <body suppressHydrationWarning className="bg-black text-white min-h-full flex flex-col selection:bg-blue-500/30">
         <Navbar />
         <main className="flex-grow pt-16">
           {children}
