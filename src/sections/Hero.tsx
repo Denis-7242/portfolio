@@ -1,39 +1,217 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { DesignBadge } from "@/components/ui/DesignBadge";
+
+/* -----------------------------------------------------------------------------
+ * CANVAS PIXEL PHYSICS ENGINE
+ * -------------------------------------------------------------------------- */
+
+type Pixel = {
+  x: number;
+  y: number;
+  color: string;
+  ctx: CanvasRenderingContext2D;
+  speed: number;
+  size: number;
+  sizeStep: number;
+  minSize: number;
+  maxSizeInt: number;
+  maxSize: number;
+  delay: number;
+  counter: number;
+  counterStep: number;
+  isIdle: boolean;
+  isReverse: boolean;
+  isShimmer: boolean;
+  draw: () => void;
+  appear: () => void;
+  disappear: () => void;
+  shimmer: () => void;
+};
+
+function createPixel(
+  ctx: CanvasRenderingContext2D,
+  canvas: HTMLCanvasElement,
+  x: number,
+  y: number,
+  color: string,
+  baseSpeed: number,
+  delay: number
+): Pixel {
+  const rand = (min: number, max: number) => Math.random() * (max - min) + min;
+
+  return {
+    x, y, color, ctx,
+    speed: rand(0.08, 0.4) * baseSpeed,
+    size: 0,
+    sizeStep: rand(0.12, 0.28),
+    minSize: 0.5,
+    maxSizeInt: 2,
+    maxSize: rand(0.5, 2),
+    delay,
+    counter: 0,
+    counterStep: rand(1.8, 3.2) + (canvas.width + canvas.height) * 0.008,
+    isIdle: false,
+    isReverse: false,
+    isShimmer: false,
+    draw() {
+      const offset = this.maxSizeInt * 0.5 - this.size * 0.5;
+      ctx.fillStyle = this.color;
+      ctx.fillRect(this.x + offset, this.y + offset, this.size, this.size);
+    },
+    appear() {
+      this.isIdle = false;
+      if (this.counter <= this.delay) {
+        this.counter += this.counterStep;
+        return;
+      }
+      if (this.size >= this.maxSize) this.isShimmer = true;
+      if (this.isShimmer) this.shimmer();
+      else this.size += this.sizeStep;
+      this.draw();
+    },
+    disappear() {
+      this.isShimmer = false;
+      this.counter = 0;
+      if (this.size <= 0) {
+        this.isIdle = true;
+        return;
+      }
+      this.size -= 0.1;
+      this.draw();
+    },
+    shimmer() {
+      if (this.size >= this.maxSize) this.isReverse = true;
+      else if (this.size <= this.minSize) this.isReverse = false;
+      if (this.isReverse) this.size -= this.speed;
+      else this.size += this.speed;
+    },
+  };
+}
+
+function PixelCanvas({ colors, gap = 6, speed = 30 }: { colors: string[], gap?: number, speed?: number }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const pixelsRef = useRef<Pixel[]>([]);
+  const animationRef = useRef<number>(0);
+  const lastFrameRef = useRef(performance.now());
+
+  const init = useCallback(() => {
+    const canvas = canvasRef.current;
+    const wrap = wrapRef.current;
+    if (!canvas || !wrap || colors.length === 0) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const { width, height } = wrap.getBoundingClientRect();
+    const w = Math.floor(width);
+    const h = Math.floor(height);
+    canvas.width = w;
+    canvas.height = h;
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+
+    const effectiveSpeed = Math.min(speed, 100) * 0.001;
+    const pixels: Pixel[] = [];
+    for (let x = 0; x < w; x += gap) {
+      for (let y = 0; y < h; y += gap) {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const dx = x - w / 2;
+        const dy = y - h / 2;
+        const delay = Math.sqrt(dx * dx + dy * dy) * 0.65;
+        pixels.push(createPixel(ctx, canvas, x, y, color, effectiveSpeed, delay));
+      }
+    }
+    pixelsRef.current = pixels;
+  }, [colors, gap, speed]);
+
+  const animate = useCallback((mode: "appear" | "disappear") => {
+    cancelAnimationFrame(animationRef.current);
+    const loop = () => {
+      animationRef.current = requestAnimationFrame(loop);
+      const now = performance.now();
+      if (now - lastFrameRef.current < 1000 / 60) return;
+      lastFrameRef.current = now;
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (!canvas || !ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const pixel of pixelsRef.current) pixel[mode]();
+      if (pixelsRef.current.every((p) => p.isIdle)) cancelAnimationFrame(animationRef.current);
+    };
+    animationRef.current = requestAnimationFrame(loop);
+  }, []);
+
+  useEffect(() => {
+    init();
+    const resizeObserver = new ResizeObserver(() => init());
+    if (wrapRef.current) resizeObserver.observe(wrapRef.current);
+    animate("appear");
+    return () => {
+      resizeObserver.disconnect();
+      cancelAnimationFrame(animationRef.current);
+    };
+  }, [init, animate]);
+
+  return (
+    <div ref={wrapRef} className="absolute inset-0 overflow-hidden pointer-events-none">
+      <canvas ref={canvasRef} className="block w-full h-full" />
+    </div>
+  );
+}
+
+/* -----------------------------------------------------------------------------
+ * HERO SECTION
+ * -------------------------------------------------------------------------- */
 
 const TECH_STACK = [
   "Next.js", "React", "Node.js", "Flutter", "Kotlin", "MySQL", "Cybersecurity"
 ];
 
 const Hero = () => {
+  const [themeColors, setThemeColors] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const div = document.createElement("div");
+    document.body.appendChild(div);
+    div.className = "text-slate-500";
+    const muted = getComputedStyle(div).color;
+    div.className = "text-blue-500";
+    const primary = getComputedStyle(div).color;
+    document.body.removeChild(div);
+    setThemeColors([muted, muted, muted, muted, primary]);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black text-white">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-deep text-white">
+      {/* Pixel Physics Background */}
+      <div className="absolute inset-0 z-0 opacity-40">
+        {themeColors.length > 0 && <PixelCanvas colors={themeColors} gap={8} speed={30} />}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-bg-deep)_100%)] opacity-80" />
+      </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center"
         >
-          {/* Profile Image */}
+          {/* Profile Image with Precision Aura */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
             className="relative mb-8 group"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10">
+            <div className="absolute -inset-2 bg-gradient-to-r from-accent-electric to-blue-600 rounded-full blur-lg opacity-30 group-hover:opacity-60 transition duration-500" />
+            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
               <Image
                 src="/assets/pic1.jpeg"
                 alt="Denis Murithi"
@@ -45,46 +223,44 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Badge */}
+          {/* Technical Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4 }}
-            className="px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-blue-400 font-medium text-xs uppercase tracking-widest mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
           >
-            Available for New Opportunities
+            <DesignBadge variant="accent" className="px-4 py-1.5 text-[10px]">
+              Available for New Opportunities
+            </DesignBadge>
           </motion.div>
 
-          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tight mb-6 leading-tight">
-            Denis <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">Murithi</span>
+          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-tight mt-6">
+            Denis <span className="bg-gradient-to-r from-accent-electric via-blue-500 to-blue-700 bg-clip-text text-transparent">Murithi</span>
           </h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-lg md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-lg md:text-2xl text-text-muted mb-8 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Full Stack Developer <span className="text-blue-500 mx-1">|</span> Android Developer <span className="text-blue-500 mx-1">|</span> Cybersecurity Engineer
-            <span className="block mt-4 text-gray-500 text-base md:text-lg italic font-normal">
+            Full Stack Developer <span className="text-accent-electric mx-1">|</span> Android Developer <span className="text-accent-electric mx-1">|</span> Cybersecurity Engineer
+            <span className="block mt-4 text-slate-500 text-base md:text-lg italic font-normal">
               Building secure, scalable systems and intelligent applications.
             </span>
           </motion.p>
 
-          {/* Tech Stack Badges */}
+          {/* Tech Stack - Refined DesignBadges */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
             className="flex flex-wrap justify-center gap-3 mb-12"
           >
             {TECH_STACK.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-gray-300 text-xs font-medium hover:bg-white/10 transition-colors"
-              >
+              <DesignBadge key={tech} variant="primary">
                 {tech}
-              </span>
+              </DesignBadge>
             ))}
           </motion.div>
 
@@ -92,7 +268,7 @@ const Hero = () => {
             <Button
               variant="primary"
               size="lg"
-              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-xl shadow-xl shadow-blue-500/20 transition-all"
+              className="group px-8 py-4 bg-accent-electric hover:bg-blue-400 text-bg-deep rounded-xl shadow-lg shadow-accent-electric/20 transition-all duration-300"
               onClick={() => {
                 document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
               }}
@@ -103,7 +279,7 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="px-8 py-4 border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 rounded-xl transition-all"
+              className="px-8 py-4 border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 rounded-xl transition-all duration-300"
               onClick={() => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
@@ -113,18 +289,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* Bottom Decorative Element */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce"
-      >
-        <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center p-1">
-          <div className="w-1 h-2 bg-gray-600 rounded-full" />
-        </div>
-      </motion.div>
     </section>
   );
 };

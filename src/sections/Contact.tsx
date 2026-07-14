@@ -2,53 +2,69 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, User, MessageSquare, MapPin } from 'lucide-react';
+import { Mail, MessageSquare, MapPin } from 'lucide-react';
+import { DesignCard } from '@/components/ui/DesignCard';
+import { DesignBadge } from '@/components/ui/DesignBadge';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 relative overflow-hidden bg-bg-deep text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-6"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl md:text-sxl font-bold mb-6 tracking-tight"
           >
-            Get In <span className="text-blue-400">Touch</span>
+            Get In <span className="text-accent-electric">Touch</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-400 text-lg leading-relaxed"
+            transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-text-muted text-lg leading-relaxed font-light"
           >
             I'm always open to discussing new projects, collaborating on open-source
             software, or chatting about cybersecurity. Feel free to reach out through any of the channels below!
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Email Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:bg-white/[0.08] flex flex-col items-center text-center"
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="p-4 rounded-2xl bg-blue-500/10 text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
-              <Mail className="w-8 h-8" />
-            </div>
-            <h3 className="text-white font-bold text-xl mb-2">Email</h3>
-            <p className="text-gray-500 text-sm mb-6">Best for professional inquiries</p>
-            <a
-              href="mailto:dexdenis3@gmail.com"
-              className="mt-auto w-full py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-500 transition-all active:scale-95"
-            >
-              dexdenis3@gmail.com
-            </a>
+            <DesignCard className="flex flex-col h-full group relative overflow-hidden">
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-8">
+                  <div className="p-3 rounded-xl bg-accent-electric/10 text-accent-electric group-hover:bg-accent-electric group-hover:text-bg-deep transition-all duration-300">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <DesignBadge variant="accent">Professional</DesignBadge>
+                </div>
+
+                <div className="mb-8">
+                  <h3 className="text-white font-bold text-2xl mb-1">Email</h3>
+                  <p className="text-text-muted text-sm font-light">Best for formal inquiries</p>
+                </div>
+
+                <div className="mt-auto">
+                  <a
+                    href="mailto:dexdenis3@gmail.com"
+                    className="block w-full py-4 px-6 rounded-xl bg-accent-electric text-bg-deep font-bold text-center transition-all hover:bg-blue-400 active:scale-95 shadow-lg shadow-accent-electric/20"
+                  >
+                    dexdenis3@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-accent-electric/10 blur-3xl rounded-full" />
+            </DesignCard>
           </motion.div>
 
           {/* WhatsApp Card */}
@@ -56,22 +72,35 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-green-500/50 transition-all duration-300 hover:bg-white/[0.08] flex flex-col items-center text-center"
+            transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="p-4 rounded-2xl bg-green-500/10 text-green-400 mb-6 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
-              <MessageSquare className="w-8 h-8" />
-            </div>
-            <h3 className="text-white font-bold text-xl mb-2">WhatsApp</h3>
-            <p className="text-gray-500 text-sm mb-6">Best for quick chats</p>
-            <a
-              href="https://wa.me/254793472969"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto w-full py-3 rounded-xl bg-green-600 text-white font-medium hover:bg-green-500 transition-all active:scale-95"
-            >
-              +254 793 472 969
-            </a>
+            <DesignCard className="flex flex-col h-full group relative overflow-hidden">
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-8">
+                  <div className="p-3 rounded-xl bg-accent-electric/10 text-accent-electric group-hover:bg-accent-electric group-hover:text-bg-deep transition-all duration-300">
+                    <MessageSquare className="w-6 h-6" />
+                  </div>
+                  <DesignBadge variant="accent">Quick Chat</DesignBadge>
+                </div>
+
+                <div className="mb-8">
+                  <h3 className="text-white font-bold text-2xl mb-1">WhatsApp</h3>
+                  <p className="text-text-muted text-sm font-light">Immediate response</p>
+                </div>
+
+                <div className="mt-auto">
+                  <a
+                    href="https://wa.me/254793472969"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-4 px-6 rounded-xl bg-accent-electric text-bg-deep font-bold text-center transition-all hover:bg-blue-400 active:scale-95 shadow-lg shadow-accent-electric/20"
+                  >
+                    +254 793 472 969
+                  </a>
+                </div>
+              </div>
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-accent-electric/10 blur-3xl rounded-full" />
+            </DesignCard>
           </motion.div>
 
           {/* Location Card */}
@@ -79,17 +108,30 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:bg-white/[0.08] flex flex-col items-center text-center"
+            transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="p-4 rounded-2xl bg-purple-500/10 text-purple-400 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
-              <MapPin className="w-8 h-8" />
-            </div>
-            <h3 className="text-white font-bold text-xl mb-2">Location</h3>
-            <p className="text-gray-500 text-sm mb-6">Where I'm based</p>
-            <div className="mt-auto w-full py-3 rounded-xl bg-white/10 text-white font-medium border border-white/10">
-              Meru, Kenya
-            </div>
+            <DesignCard className="flex flex-col h-full group relative overflow-hidden">
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-8">
+                  <div className="p-3 rounded-xl bg-accent-electric/10 text-accent-electric group-hover:bg-accent-electric group-hover:text-bg-deep transition-all duration-300">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <DesignBadge variant="accent">Based In</DesignBadge>
+                </div>
+
+                <div className="mb-8">
+                  <h3 className="text-white font-bold text-2xl mb-1">Location</h3>
+                  <p className="text-text-muted text-sm font-light">East Africa Region</p>
+                </div>
+
+                <div className="mt-auto">
+                  <div className="block w-full py-4 px-6 rounded-xl bg-white/5 text-white font-bold text-center border border-white/10 backdrop-blur-sm">
+                    Meru, Kenya
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-accent-electric/10 blur-3xl rounded-full" />
+            </DesignCard>
           </motion.div>
         </div>
       </div>

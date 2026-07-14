@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle2 } from 'lucide-react';
+import { DesignCard } from '@/components/ui/DesignCard';
 
 const experiences = [
   {
@@ -31,64 +32,71 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 bg-black/50 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-24 relative overflow-hidden bg-bg-deep text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-4"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl md:text-5xl font-bold mb-4 tracking-tight"
           >
-            My <span className="text-blue-400">Journey</span>
+            My <span className="text-accent-electric">Journey</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-400 max-w-2xl mx-auto"
+            transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-text-muted max-w-2xl mx-auto text-lg font-light"
           >
             A timeline of my academic and professional growth in the tech ecosystem.
           </motion.p>
         </div>
 
-        <div className="relative space-y-12">
-          {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-purple-500 to-transparent -translate-x-1/2 hidden sm:block" />
+        <div className="relative space-y-16">
+          {/* Technical "Circuit" Line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-electric/50 via-blue-600/30 to-transparent -translate-x-1/2 hidden sm:block" />
 
           {experiences.map((exp, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+              initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.2 }}
+              transition={{ duration: 0.8, delay: idx * 0.2, ease: [0.16, 1, 0.3, 1] }}
               className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
             >
-              {/* Dot */}
-              <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black -translate-x-1/2 z-10 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+              {/* Solder Point / Node */}
+              <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-accent-electric rounded-full border-4 border-bg-deep -translate-x-1/2 z-10 shadow-[0_0_15px_rgba(0, 209, 255, 0.6)]" />
 
               <div className="w-full md:w-1/2 pl-12 md:pl-0">
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
-                  <div className="flex items-center gap-2 text-blue-400 text-sm font-bold mb-2">
-                    <Calendar className="w-4 h-4" />
+                <DesignCard className="p-6 group transition-all">
+                  <div className="flex items-center gap-2 text-accent-electric text-xs font-mono uppercase tracking-widest mb-3">
+                    <Calendar className="w-3.5 h-3.5" />
                     {exp.year}
                   </div>
-                  <h3 className="text-xl font-bold mb-1">{exp.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{exp.organization}</p>
-                  <p className="text-gray-400 mb-6 leading-relaxed">
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-accent-electric transition-colors">
+                    {exp.title}
+                  </h3>
+                  <p className="text-text-muted text-sm mb-4 font-medium">
+                    {exp.organization}
+                  </p>
+                  <p className="text-text-muted mb-6 leading-relaxed font-light text-sm">
                     {exp.description}
                   </p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {exp.milestones.map((m, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-3 text-xs text-slate-400 group-hover:text-slate-300 transition-colors">
+                        <div className="mt-1 p-0.5 rounded-full bg-accent-electric/20">
+                          <CheckCircle2 className="w-3 h-3 text-accent-electric" />
+                        </div>
                         {m}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </DesignCard>
               </div>
               <div className="w-full md:w-1/2" />
             </motion.div>
