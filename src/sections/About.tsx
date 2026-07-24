@@ -105,7 +105,7 @@ const About = () => {
             <div className="space-y-6 text-text-muted leading-relaxed text-lg">
               <p>
                 I am a passionate developer and security researcher currently pursuing a
-                <span className="text-white font-medium"> Bachelor of Science in Computer Technology</span>
+                <span className="text-white font-medium">  Bachelor of Science in Computer Technology </span>
                 at Meru University of Science and Technology.
                 My journey is driven by a fascination with how complex systems work and a commitment to making them secure and efficient.
               </p>
