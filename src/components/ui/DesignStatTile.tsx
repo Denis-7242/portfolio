@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface DesignStatTileProps {
   label: string;
-  value: string | number;
+  value: React.ReactNode;
   subtext?: string;
   className?: string;
 }

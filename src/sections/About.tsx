@@ -6,6 +6,13 @@ import { BookOpen, ShieldCheck, Cpu, Code, Smartphone, Award } from 'lucide-reac
 import { DesignCard } from '@/components/ui/DesignCard';
 import { DesignBadge } from '@/components/ui/DesignBadge';
 
+const SKILLS = [
+  { icon: Code, label: "Full Stack", desc: "Scalable web apps", variant: "primary" },
+  { icon: Smartphone, label: "Mobile", desc: "Flutter & Kotlin", variant: "primary" },
+  { icon: ShieldCheck, label: "Cybersecurity", desc: "Defensive & Offensive", variant: "accent" },
+  { icon: Cpu, label: "AI Systems", desc: "Intelligent automation", variant: "primary" },
+] as const;
+
 const About = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -109,12 +116,8 @@ const About = () => {
 
               {/* Refined Skills Grid using DesignCard & DesignBadge */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8">
-                {[
-                  { icon: Code, label: "Full Stack", desc: "Scalable web apps", variant: "primary" },
-                  { icon: Smartphone, label: "Mobile", desc: "Flutter & Kotlin", variant: "primary" },
-                  { icon: ShieldCheck, label: "Cybersecurity", desc: "Defensive & Offensive", variant: "accent" },
-                  { icon: Cpu, label: "AI Systems", desc: "Intelligent automation", variant: "primary" },
-                ].map((skill, index) => (
+                {SKILLS.map((skill, index) => (
+
                   <motion.div
                     key={skill.label}
                     initial={{ opacity: 0, y: 10 }}
