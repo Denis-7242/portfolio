@@ -31,7 +31,7 @@ const About = () => {
     <section
       id="about"
       onMouseMove={handleMouseMove}
-      className="py-24 relative overflow-hidden bg-bg-deep text-white"
+      className="py-24 relative overflow-hidden bg-bg-deep text-foreground"
     >
       {/* Mouse-following Spotlight - Refined for Electric Blue */}
       <motion.div
@@ -105,13 +105,13 @@ const About = () => {
             <div className="space-y-6 text-text-muted leading-relaxed text-lg">
               <p>
                 I am a passionate developer and security researcher currently pursuing a
-                <span className="text-white font-medium">  Bachelor of Science in Computer Technology </span>
+                <span className="text-foreground font-medium">  Bachelor of Science in Computer Technology </span>
                 at Meru University of Science and Technology.
                 My journey is driven by a fascination with how complex systems work and a commitment to making them secure and efficient.
               </p>
               <p>
-                With a diverse toolkit spanning <span className="text-white font-medium">Full-Stack Web Development, Android Development</span>,
-                and <span className="text-white font-medium">Cybersecurity</span>, I bridge the gap between functional design and robust architecture.
+                With a diverse toolkit spanning <span className="text-foreground font-medium">Full-Stack Web Development, Android Development</span>,
+                and <span className="text-foreground font-medium">Cybersecurity</span>, I bridge the gap between functional design and robust architecture.
               </p>
 
               {/* Refined Skills Grid using DesignCard & DesignBadge */}

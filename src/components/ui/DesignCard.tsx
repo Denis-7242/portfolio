@@ -21,8 +21,8 @@ export const DesignCard = ({ children, className, hoverable = true }: DesignCard
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className={cn(
         "relative group p-6 rounded-2xl transition-all duration-300",
-        "bg-slate-900/40 backdrop-blur-md border border-white/10 shadow-xl",
-        "hover:bg-slate-900/60",
+        "bg-bg-surface/40 backdrop-blur-md border border-glass-border shadow-xl",
+        "hover:bg-bg-surface/60",
         className
       )}
     >

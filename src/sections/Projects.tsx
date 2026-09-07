@@ -34,7 +34,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
   }).slice(0, 6);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-bg-deep text-white">
+    <section id="projects" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
@@ -64,7 +64,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
                 className={`px-5 py-2 rounded-xl text-xs font-mono uppercase tracking-widest transition-all duration-300 border ${
                   filter === cat
                     ? 'bg-accent-electric text-bg-deep border-accent-electric shadow-lg shadow-accent-electric/30 scale-105'
-                    : 'bg-white/5 text-text-muted border-white/10 hover:bg-white/10 hover:text-white hover:scale-105'
+                    : 'bg-bg-surface/50 text-text-muted border-glass-border hover:bg-bg-surface/80 hover:text-text-primary hover:scale-105'
                 }`}
               >
                 {cat}
@@ -132,7 +132,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
                       href={project.html_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-text-muted hover:text-white transition-colors"
+                      className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-text-muted hover:text-text-primary transition-colors"
                     >
                       <Github className="w-4 h-4" />
                       Code
@@ -142,7 +142,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-accent-electric hover:text-white transition-colors"
+                        className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-accent-electric hover:text-text-primary transition-colors"
                       >
                         Demo
                         <ExternalLink className="w-4 h-4" />
@@ -171,7 +171,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
           <Button
             variant="outline"
             size="lg"
-            className="gap-2 border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 rounded-xl transition-all duration-300"
+            className="gap-2 border-glass-border bg-bg-surface/50 backdrop-blur-sm hover:bg-bg-surface/80 rounded-xl transition-all duration-300"
             onClick={() => window.open('https://github.com/Denis-7242?tab=repositories', '_blank')}
           >
             View All Projects on GitHub

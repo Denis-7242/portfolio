@@ -87,7 +87,7 @@ const TechBadge = ({ skill }: { skill: Skill }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 209, 255, 0.1)' }}
-      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-text-muted hover:text-white transition-all duration-300 cursor-default group"
+      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-bg-surface/50 border border-glass-border text-text-muted hover:text-text-primary transition-all duration-300 cursor-default group"
     >
       <i className={`${skill.icon} text-lg text-accent-electric group-hover:scale-110 transition-transform`} />
       <span className="text-xs font-mono font-medium">{skill.name}</span>
@@ -97,7 +97,7 @@ const TechBadge = ({ skill }: { skill: Skill }) => {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-bg-deep text-white">
+    <section id="skills" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
       {/* Ambient Glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent-electric/10 rounded-full blur-3xl" />

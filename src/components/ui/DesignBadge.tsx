@@ -11,9 +11,9 @@ interface DesignBadgeProps {
 
 export const DesignBadge = ({ children, className, variant = "primary" }: DesignBadgeProps) => {
   const variants = {
-    primary: "bg-slate-800 text-slate-300 border-slate-700",
-    muted: "bg-slate-900/50 text-slate-500 border-slate-800",
-    accent: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+    primary: "bg-bg-surface text-text-primary border-glass-border",
+    muted: "bg-bg-surface/50 text-text-muted border-glass-border",
+    accent: "bg-accent-electric/10 text-accent-electric border-accent-electric/30",
   };
 
   return (

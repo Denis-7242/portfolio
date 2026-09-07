@@ -189,7 +189,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-deep text-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-deep text-foreground">
       {/* Pixel Physics Background */}
       <div className="absolute inset-0 z-0 opacity-40">
         {themeColors.length > 0 && <PixelCanvas colors={themeColors} gap={8} speed={30} />}

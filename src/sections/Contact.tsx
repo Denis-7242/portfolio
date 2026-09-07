@@ -8,7 +8,7 @@ import { DesignBadge } from '@/components/ui/DesignBadge';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-bg-deep text-white">
+    <section id="contact" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2
@@ -50,7 +50,7 @@ const Contact = () => {
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-white font-bold text-2xl mb-1">Email</h3>
+                  <h3 className="text-text-primary font-bold text-2xl mb-1">Email</h3>
                   <p className="text-text-muted text-sm font-light">Best for formal inquiries</p>
                 </div>
 
@@ -84,7 +84,7 @@ const Contact = () => {
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-white font-bold text-2xl mb-1">WhatsApp</h3>
+                  <h3 className="text-text-primary font-bold text-2xl mb-1">WhatsApp</h3>
                   <p className="text-text-muted text-sm font-light">Immediate response</p>
                 </div>
 
@@ -120,12 +120,12 @@ const Contact = () => {
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-white font-bold text-2xl mb-1">Location</h3>
+                  <h3 className="text-text-primary font-bold text-2xl mb-1">Location</h3>
                   <p className="text-text-muted text-sm font-light">East Africa Region</p>
                 </div>
 
                 <div className="mt-auto">
-                  <div className="block w-full py-4 px-6 rounded-xl bg-white/5 text-white font-bold text-center border border-white/10 backdrop-blur-sm">
+                  <div className="block w-full py-4 px-6 rounded-xl bg-bg-surface/50 text-text-primary font-bold text-center border border-glass-border backdrop-blur-sm">
                     Meru, Kenya
                   </div>
                 </div>

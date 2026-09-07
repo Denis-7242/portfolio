@@ -17,10 +17,10 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-500 shadow-lg shadow-blue-500/30',
-    secondary: 'bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-500/30',
-    outline: 'border-2 border-blue-600/50 text-blue-400 hover:border-blue-600 hover:bg-blue-600 hover:text-white',
-    ghost: 'text-gray-400 hover:text-white hover:bg-white/10',
+    primary: 'bg-accent-electric text-bg-deep hover:opacity-90 shadow-lg shadow-accent-electric/20',
+    secondary: 'bg-accent-deep text-white hover:opacity-90 shadow-lg shadow-accent-deep/20',
+    outline: 'border-2 border-accent-electric/50 text-accent-electric hover:border-accent-electric hover:bg-accent-electric hover:text-bg-deep',
+    ghost: 'text-text-muted hover:text-text-primary hover:bg-bg-surface/10',
   };
 
   const sizes = {

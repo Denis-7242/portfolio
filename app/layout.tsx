@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from '@/components/ThemeProvider';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,14 +23,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body suppressHydrationWarning className="bg-black text-white min-h-full flex flex-col selection:bg-blue-500/30">
-        <Navbar />
-        <main className="flex-grow pt-16">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-full flex flex-col selection:bg-blue-500/30">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <Navbar />
+          <main className="flex-grow pt-16">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

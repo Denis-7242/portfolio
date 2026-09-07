@@ -32,7 +32,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-bg-deep text-white">
+    <section id="experience" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
@@ -88,7 +88,7 @@ const Experience = () => {
                   </p>
                   <ul className="space-y-3">
                     {exp.milestones.map((m, i) => (
-                      <li key={i} className="flex items-start gap-3 text-xs text-slate-400 group-hover:text-slate-300 transition-colors">
+                      <li key={i} className="flex items-start gap-3 text-xs text-text-muted group-hover:text-text-primary transition-colors">
                         <div className="mt-1 p-0.5 rounded-full bg-accent-electric/20">
                           <CheckCircle2 className="w-3 h-3 text-accent-electric" />
                         </div>
