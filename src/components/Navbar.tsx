@@ -19,7 +19,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-bg-surface/50 border-b border-glass-border">
+    <nav className="fixed top-0 w-full z-50 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -52,7 +52,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-bg-surface/90 backdrop-blur-xl border-b border-glass-border p-4 flex flex-col gap-4">
+        <div className="md:hidden absolute top-16 left-0 w-full bg-transparent p-4 flex flex-col gap-4">
           <div className="flex justify-end mb-2">
             <ThemeToggle />
           </div>

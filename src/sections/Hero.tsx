@@ -279,7 +279,7 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="px-8 py-4 border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 rounded-xl transition-all duration-300"
+              className="px-8 py-4 border-transparent bg-transparent hover:bg-bg-surface/10 rounded-xl transition-all duration-300"
               onClick={() => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}

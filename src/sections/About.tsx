@@ -126,7 +126,7 @@ const About = () => {
                     transition={{ delay: 0.1 * index, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <DesignCard className="flex items-start gap-4 p-4 group">
-                      <div className="p-2 rounded-lg bg-white/5 group-hover:bg-accent-electric/20 transition-colors">
+                      <div className="p-2 rounded-lg bg-bg-surface group-hover:bg-accent-electric/20 transition-colors">
                         <skill.icon className="w-6 h-6 text-accent-electric" />
                       </div>
                       <div>

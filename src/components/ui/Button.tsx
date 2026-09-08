@@ -20,7 +20,7 @@ export const Button = ({
     primary: 'bg-accent-electric text-bg-deep hover:opacity-90 shadow-lg shadow-accent-electric/20',
     secondary: 'bg-accent-deep text-white hover:opacity-90 shadow-lg shadow-accent-deep/20',
     outline: 'border-2 border-accent-electric/50 text-accent-electric hover:border-accent-electric hover:bg-accent-electric hover:text-bg-deep',
-    ghost: 'text-text-muted hover:text-text-primary hover:bg-bg-surface/10',
+    ghost: 'text-text-muted hover:text-text-primary hover:bg-bg-surface/20',
   };
 
   const sizes = {

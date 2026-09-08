@@ -64,7 +64,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
                 className={`px-5 py-2 rounded-xl text-xs font-mono uppercase tracking-widest transition-all duration-300 border ${
                   filter === cat
                     ? 'bg-accent-electric text-bg-deep border-accent-electric shadow-lg shadow-accent-electric/30 scale-105'
-                    : 'bg-bg-surface/50 text-text-muted border-glass-border hover:bg-bg-surface/80 hover:text-text-primary hover:scale-105'
+                    : 'bg-transparent text-text-muted border-transparent hover:text-text-primary hover:scale-105'
                 }`}
               >
                 {cat}
@@ -171,7 +171,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
           <Button
             variant="outline"
             size="lg"
-            className="gap-2 border-glass-border bg-bg-surface/50 backdrop-blur-sm hover:bg-bg-surface/80 rounded-xl transition-all duration-300"
+            className="gap-2 border-transparent bg-transparent rounded-xl transition-all duration-300"
             onClick={() => window.open('https://github.com/Denis-7242?tab=repositories', '_blank')}
           >
             View All Projects on GitHub

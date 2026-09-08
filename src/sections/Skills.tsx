@@ -87,7 +87,7 @@ const TechBadge = ({ skill }: { skill: Skill }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 209, 255, 0.1)' }}
-      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-bg-surface/50 border border-glass-border text-text-muted hover:text-text-primary transition-all duration-300 cursor-default group"
+      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-transparent border-transparent text-text-muted hover:text-text-primary transition-all duration-300 cursor-default group"
     >
       <i className={`${skill.icon} text-lg text-accent-electric group-hover:scale-110 transition-transform`} />
       <span className="text-xs font-mono font-medium">{skill.name}</span>

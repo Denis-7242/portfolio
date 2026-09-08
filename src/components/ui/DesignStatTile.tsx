@@ -19,7 +19,7 @@ export const DesignStatTile = ({ label, value, subtext, className }: DesignStatT
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "flex flex-col gap-1 p-4 rounded-xl border border-glass-border bg-bg-surface/30 backdrop-blur-sm",
+        "flex flex-col gap-1 p-4 rounded-xl bg-transparent",
         className
       )}
     >

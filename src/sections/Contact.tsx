@@ -125,7 +125,7 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-auto">
-                  <div className="block w-full py-4 px-6 rounded-xl bg-bg-surface/50 text-text-primary font-bold text-center border border-glass-border backdrop-blur-sm">
+                  <div className="block w-full py-4 px-6 rounded-xl bg-transparent text-text-primary font-bold text-center">
                     Meru, Kenya
                   </div>
                 </div>
