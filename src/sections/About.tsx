@@ -45,7 +45,7 @@ const About = () => {
       {/* Ambient Background Glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent-electric/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-deep/10 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -69,7 +69,7 @@ const About = () => {
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-4 rounded-full border border-blue-600/30"
+                className="absolute inset-4 rounded-full border border-accent-deep/30"
               />
 
               {/* Center Card - Now using DesignCard */}
@@ -99,7 +99,7 @@ const About = () => {
             className="w-full lg:w-1/2"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
-              About <span className="bg-gradient-to-r from-accent-electric to-blue-500 bg-clip-text text-transparent">Me</span>
+              About <span className="bg-gradient-to-r from-accent-electric to-accent-deep bg-clip-text text-transparent">Me</span>
             </h2>
 
             <div className="space-y-6 text-text-muted leading-relaxed text-lg">

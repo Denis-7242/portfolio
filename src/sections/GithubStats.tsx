@@ -38,7 +38,7 @@ const CountUp = ({ value }: { value: number }) => {
 
 const GithubStats = ({ username = 'Denis-7242', stats }: GithubStatsProps) => {
   return (
-    <section id="stats" className="py-24 relative overflow-hidden bg-bg-deep text-white">
+    <section id="stats" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2

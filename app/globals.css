@@ -8,10 +8,10 @@
   /* Soft UI Evolution Palette - Dark (Default) */
   --color-bg-deep: #000000;
   --color-bg-surface: #0f172a;
-  --color-accent-electric: #00D1FF;
-  --color-accent-deep: #0EA5E9;
+  --color-accent-electric: #60A5FA;
+  --color-accent-deep: #3B82F6;
   --color-text-primary: #F8FAFC;
-  --color-text-muted: #94A3B8;
+  --color-text-muted: #64748B;
   --color-glass-border: rgba(255, 255, 255, 0.1);
   --color-glass-bg: rgba(15, 23, 42, 0.6);
 }
@@ -23,8 +23,8 @@
   /* Soft UI Evolution Palette - Light */
   --color-bg-deep: #f8fafc;
   --color-bg-surface: #ffffff;
-  --color-accent-electric: #0284c7;
-  --color-accent-deep: #0369a1;
+  --color-accent-electric: #60A5FA;
+  --color-accent-deep: #3B82F6;
   --color-text-primary: #0f172a;
   --color-text-muted: #64748b;
   --color-glass-border: rgba(0, 0, 0, 0.1);

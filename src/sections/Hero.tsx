@@ -210,7 +210,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
             className="relative mb-8 group"
           >
-            <div className="absolute -inset-2 bg-gradient-to-r from-accent-electric to-blue-600 rounded-full blur-lg opacity-30 group-hover:opacity-60 transition duration-500" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-accent-electric to-accent-deep rounded-full blur-lg opacity-30 group-hover:opacity-60 transition duration-500" />
             <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
               <Image
                 src="/assets/pic1.jpeg"
@@ -235,7 +235,7 @@ const Hero = () => {
           </motion.div>
 
           <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-tight mt-6">
-            Denis <span className="bg-gradient-to-r from-accent-electric via-blue-500 to-blue-700 bg-clip-text text-transparent">Murithi</span>
+            Denis <span className="bg-gradient-to-r from-accent-electric via-blue-400 to-accent-deep bg-clip-text text-transparent">Murithi</span>
           </h1>
 
           <motion.p
@@ -245,7 +245,7 @@ const Hero = () => {
             className="text-lg md:text-2xl text-text-muted mb-8 max-w-3xl mx-auto leading-relaxed font-light"
           >
             Full Stack Developer <span className="text-accent-electric mx-1">|</span> Android Developer <span className="text-accent-electric mx-1">|</span> Cybersecurity Engineer
-            <span className="block mt-4 text-slate-500 text-base md:text-lg italic font-normal">
+            <span className="block mt-4 text-text-muted text-base md:text-lg italic font-normal">
               Building secure, scalable systems and intelligent applications.
             </span>
           </motion.p>

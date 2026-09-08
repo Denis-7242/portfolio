@@ -134,7 +134,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-text-muted hover:text-text-primary transition-colors"
                     >
-                      <Github className="w-4 h-4" />
+                        <Github className="w-4 h-4 text-text-muted group-hover:text-text-primary" />
                       Code
                     </a>
                     {project.liveDemo && (
