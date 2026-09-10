@@ -85,11 +85,11 @@ src/
 I'm always open to collaborating on innovative projects or security research.
 
 - **GitHub**: [@Denis-7242](https://github.com/Denis-7242)
-- **LinkedIn**: [Denis Murithi](https://www.linkedin.com/in/denis-murithi-39070639a/)
+- **LinkedIn**: [Denis Murithi](https://www.linkedin.com/in//)
 - **Email**: `dexdenis3@gmail.com`
 
 ---
 
 <p align="center">
-  Crafted with 💻 and 🛡️ by <strong>Denis Murithi</strong>
+  made with ♥️ by <strong>Denis</strong>
 </p>
