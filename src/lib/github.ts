@@ -1,4 +1,3 @@
-import { ProjectMetadata } from '../data/projects';
 
 export interface GitHubRepo {
   id: number;
@@ -85,7 +84,7 @@ export async function fetchGithubStats(username: string): Promise<GithubStats> {
     : 0;
 
   // Mocking contributions as GitHub API requires GraphQL for accurate contribution counts
-  const contributions = 450 + Math.floor(Math.random() * 100);
+  const contributions = 450;
 
   return {
     repos: repoCount,
