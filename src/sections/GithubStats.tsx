@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Star, Code2, ShieldCheck } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { GithubStats as GithubStatsType } from '@/lib/github';
 import { DesignStatTile } from '@/components/ui/DesignStatTile';
 
@@ -63,18 +63,18 @@ const GithubStats = ({ username = 'Denis-7242', stats }: GithubStatsProps) => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <DesignStatTile
-            label="TOTAL_REPOSITORIES"
-            value={<CountUp value={typeof stats.repos === 'number' ? stats.repos : parseInt(stats.repos) || 0} />}
+            label="Total Repositories"
+            value={<CountUp value={stats.repos} />}
             subtext="Active projects & experiments"
           />
           <DesignStatTile
-            label="TOTAL_STARS"
-            value={<CountUp value={typeof stats.stars === 'number' ? stats.stars : parseInt(stats.stars) || 0} />}
+            label="Total Stars"
+            value={<CountUp value={stats.stars} />}
             subtext="Community recognition"
           />
           <DesignStatTile
-            label="TOTAL_CONTRIBUTIONS"
-            value={<CountUp value={typeof stats.contributions === 'number' ? stats.contributions : parseInt(stats.contributions) || 0} />}
+            label="Total Contributions"
+            value={<CountUp value={stats.contributions} />}
             subtext="Commits & PRs merged"
           />
         </div>
