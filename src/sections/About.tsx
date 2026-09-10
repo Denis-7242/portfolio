@@ -31,7 +31,7 @@ const About = () => {
     <section
       id="about"
       onMouseMove={handleMouseMove}
-      className="py-24 relative overflow-hidden bg-bg-deep text-foreground"
+      className="py-24 relative overflow-hidden bg-bg-deep text-foreground scroll-mt-16"
     >
       {/* Mouse-following Spotlight - Refined for Electric Blue */}
       <motion.div

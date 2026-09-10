@@ -9,6 +9,16 @@ import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'About', href: '#about' },
@@ -19,7 +29,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-transparent">
+    <nav className={cn(
+      "fixed top-0 w-full z-50 transition-all duration-300",
+      isScrolled ? "glass-panel" : "bg-transparent"
+    )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -52,7 +65,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-transparent p-4 flex flex-col gap-4">
+        <div className="md:hidden absolute top-16 left-0 w-full glass-panel p-4 flex flex-col gap-4">
           <div className="flex justify-end mb-2">
             <ThemeToggle />
           </div>

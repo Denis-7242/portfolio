@@ -97,7 +97,7 @@ const TechBadge = ({ skill }: { skill: Skill }) => {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
+    <section id="skills" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary scroll-mt-16">
       {/* Ambient Glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent-electric/10 rounded-full blur-3xl" />

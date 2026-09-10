@@ -32,7 +32,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
+    <section id="experience" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2

@@ -34,7 +34,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
   }).slice(0, 6);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
+    <section id="projects" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
