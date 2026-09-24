@@ -58,7 +58,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <button className="md:hidden text-text-primary" onClick={() => setIsOpen(!isOpen)}>
+          <button className="md:hidden text-text-primary hover:text-accent-electric transition-colors" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
