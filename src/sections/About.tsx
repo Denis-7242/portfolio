@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 import { BookOpen, ShieldCheck, Cpu, Code, Smartphone, Award } from 'lucide-react';
 import { DesignCard } from '@/components/ui/DesignCard';
@@ -14,40 +13,15 @@ const SKILLS = [
 ] as const;
 
 const About = () => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
-
   return (
     <section
       id="about"
-      onMouseMove={handleMouseMove}
       className="py-24 relative overflow-hidden bg-bg-deep text-foreground scroll-mt-16"
     >
-      {/* Mouse-following Spotlight - Refined for Electric Blue */}
-      <motion.div
-        style={{
-          left: springX,
-          top: springY,
-        }}
-        className="absolute -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-electric/10 rounded-full blur-3xl pointer-events-none z-[-2]"
-      />
+      {/* Mouse-following Spotlight - Removed for pure black background */}
+      <div className="hidden" />
 
       {/* Ambient Background Glows */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent-electric/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-deep/10 rounded-full blur-3xl" />
-      </div>
-
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
 
@@ -60,18 +34,6 @@ const About = () => {
             className="w-full lg:w-1/2 flex justify-center items-center"
           >
             <div className="relative w-full max-w-md aspect-square">
-              {/* Animated Rings - Updated to Electric Blue / Navy */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-2 border-dashed border-accent-electric/30"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-4 rounded-full border border-accent-deep/30"
-              />
-
               {/* Center Card - Now using DesignCard */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <DesignCard className="relative p-8 text-center w-64 h-64 flex flex-col justify-center items-center gap-4">

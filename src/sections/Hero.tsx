@@ -190,12 +190,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-deep text-foreground">
-      {/* Pixel Physics Background */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        {themeColors.length > 0 && <PixelCanvas colors={themeColors} gap={8} speed={30} />}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-bg-deep)_100%)] opacity-80" />
-      </div>
-
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -210,7 +204,6 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
             className="relative mb-8 group"
           >
-            <div className="absolute -inset-2 bg-gradient-to-r from-accent-electric to-accent-deep rounded-full blur-lg opacity-30 group-hover:opacity-60 transition duration-500" />
             <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
               <Image
                 src="/assets/pic1.jpeg"
