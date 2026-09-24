@@ -228,7 +228,7 @@ const Hero = () => {
           </motion.div>
 
           <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-tight mt-6">
-            Denis <span className="bg-gradient-to-r from-accent-electric via-blue-400 to-accent-deep bg-clip-text text-transparent">Murithi</span>
+            Denis <span className="bg-linear-to-r from-accent-electric via-blue-400 to-accent-deep bg-clip-text text-transparent">Murithi</span>
           </h1>
 
           <motion.p
