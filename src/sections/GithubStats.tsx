@@ -39,7 +39,11 @@ const CountUp = ({ value }: { value: number }) => {
 const GithubStats = ({ username = 'Denis-7242', stats }: GithubStatsProps) => {
   return (
     <section id="stats" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-electric/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/5 blur-[120px] rounded-full" />
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -66,16 +70,19 @@ const GithubStats = ({ username = 'Denis-7242', stats }: GithubStatsProps) => {
             label="Total Repositories"
             value={<CountUp value={stats.repos} />}
             subtext="Active projects & experiments"
+            className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-300 group"
           />
           <DesignStatTile
             label="Total Stars"
             value={<CountUp value={stats.stars} />}
             subtext="Community recognition"
+            className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-300 group"
           />
           <DesignStatTile
             label="Total Contributions"
             value={<CountUp value={stats.contributions} />}
             subtext="Commits & PRs merged"
+            className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-300 group"
           />
         </div>
 
@@ -90,7 +97,7 @@ const GithubStats = ({ username = 'Denis-7242', stats }: GithubStatsProps) => {
             href={`https://github.com/${username}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-text-muted hover:text-accent-electric transition-colors group"
+            className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 text-sm font-mono uppercase tracking-widest text-text-muted hover:text-white hover:bg-white/10 transition-all duration-300 group border border-white/10"
           >
             <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
             View Full Profile
