@@ -35,7 +35,7 @@ const Navbar = () => {
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-xl font-bold bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          <Link href="/" className="text-xl font-bold text-blue-400">
             Denis Murithi
           </Link>
 
