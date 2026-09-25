@@ -7,9 +7,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { DesignBadge } from "@/components/ui/DesignBadge";
 
-/* -----------------------------------------------------------------------------
- * CANVAS PIXEL PHYSICS ENGINE
- * -------------------------------------------------------------------------- */
 
 type Pixel = {
   x: number;
@@ -165,9 +162,6 @@ function PixelCanvas({ colors, gap = 6, speed = 30 }: { colors: string[], gap?: 
   );
 }
 
-/* -----------------------------------------------------------------------------
- * HERO SECTION
- * -------------------------------------------------------------------------- */
 
 const TECH_STACK = [
   "Next.js", "React", "Node.js", "Flutter", "Kotlin", "MySQL", "Cybersecurity"
@@ -204,12 +198,12 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
             className="relative mb-8 group"
           >
-            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
+            <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
               <Image
                 src="/assets/pic1.jpeg"
                 alt="Denis Murithi"
-                width={160}
-                height={160}
+                width={224}
+                height={224}
                 className="w-full h-full object-cover"
                 priority
               />
@@ -227,8 +221,8 @@ const Hero = () => {
             </DesignBadge>
           </motion.div>
 
-          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-tight mt-6">
-            Denis <span className="bg-linear-to-r from-accent-electric via-blue-400 to-accent-deep bg-clip-text text-transparent">Murithi</span>
+          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-tight mt-6 text-foreground">
+            Denis Murithi
           </h1>
 
           <motion.p

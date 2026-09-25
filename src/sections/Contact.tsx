@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { DesignCard } from '@/components/ui/DesignCard';
 import { DesignBadge } from '@/components/ui/DesignBadge';
+import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -16,9 +17,9 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl md:text-sxl font-bold mb-6 tracking-tight"
+            className="text-3xl md:text-sxl font-bold mb-6 tracking-tight text-foreground"
           >
-            Get In <span className="text-accent-electric">Touch</span>
+            Get In Touch
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -43,8 +44,8 @@ const Contact = () => {
             <DesignCard className="flex flex-col h-full group relative overflow-hidden">
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">
-                  <div className="p-3 rounded-xl bg-accent-electric/10 text-accent-electric group-hover:bg-accent-electric group-hover:text-bg-deep transition-all duration-300">
-                    <Mail className="w-6 h-6" />
+                  <div className="p-3 rounded-xl bg-red-500/10 text-red-500 group-hover:bg-red-500 group-hover:text-bg-deep transition-all duration-300">
+                    <FaEnvelope className="w-6 h-6" />
                   </div>
                   <DesignBadge variant="accent">Professional</DesignBadge>
                 </div>
@@ -57,13 +58,13 @@ const Contact = () => {
                 <div className="mt-auto">
                   <a
                     href="mailto:dexdenis3@gmail.com"
-                    className="block w-full py-4 px-6 rounded-xl bg-accent-electric text-bg-deep font-bold text-center transition-all hover:bg-blue-400 active:scale-95 shadow-lg shadow-accent-electric/20"
+                    className="block w-full py-4 px-6 rounded-xl bg-red-600 text-bg-deep font-bold text-center transition-all hover:bg-red-500 active:scale-95 shadow-lg shadow-red-600/20"
                   >
                     dexdenis3@gmail.com
                   </a>
                 </div>
               </div>
-              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-accent-electric/10 blur-3xl rounded-full" />
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-red-500/10 blur-3xl rounded-full" />
             </DesignCard>
           </motion.div>
 
@@ -77,8 +78,8 @@ const Contact = () => {
             <DesignCard className="flex flex-col h-full group relative overflow-hidden">
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">
-                  <div className="p-3 rounded-xl bg-accent-electric/10 text-accent-electric group-hover:bg-accent-electric group-hover:text-bg-deep transition-all duration-300">
-                    <MessageSquare className="w-6 h-6" />
+                  <div className="p-3 rounded-xl bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-bg-deep transition-all duration-300">
+                    <FaWhatsapp className="w-6 h-6" />
                   </div>
                   <DesignBadge variant="accent">Quick Chat</DesignBadge>
                 </div>
@@ -93,13 +94,13 @@ const Contact = () => {
                     href="https://wa.me/254793472969"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full py-4 px-6 rounded-xl bg-accent-electric text-bg-deep font-bold text-center transition-all hover:bg-blue-400 active:scale-95 shadow-lg shadow-accent-electric/20"
+                    className="block w-full py-4 px-6 rounded-xl bg-green-500 text-bg-deep font-bold text-center transition-all hover:bg-green-400 active:scale-95 shadow-lg shadow-green-500/20"
                   >
                     +254 793 472 969
                   </a>
                 </div>
               </div>
-              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-accent-electric/10 blur-3xl rounded-full" />
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-green-500/10 blur-3xl rounded-full" />
             </DesignCard>
           </motion.div>
 
@@ -113,7 +114,7 @@ const Contact = () => {
             <DesignCard className="flex flex-col h-full group relative overflow-hidden">
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">
-                  <div className="p-3 rounded-xl bg-accent-electric/10 text-accent-electric group-hover:bg-accent-electric group-hover:text-bg-deep transition-all duration-300">
+                  <div className="p-3 rounded-xl bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-bg-deep transition-all duration-300">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <DesignBadge variant="accent">Based In</DesignBadge>
@@ -125,12 +126,12 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-auto">
-                  <div className="block w-full py-4 px-6 rounded-xl bg-transparent text-text-primary font-bold text-center">
-                    Meru, Kenya
+                  <div className="block w-full py-4 px-6 rounded-xl bg-blue-500/10 text-blue-400 font-bold text-center border border-blue-500/20 transition-all group-hover:bg-blue-500/20">
+                    Nairobi, Kenya
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-accent-electric/10 blur-3xl rounded-full" />
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full" />
             </DesignCard>
           </motion.div>
         </div>

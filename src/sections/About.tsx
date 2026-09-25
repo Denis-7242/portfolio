@@ -60,8 +60,8 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-full lg:w-1/2"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
-              About <span className="bg-gradient-to-r from-accent-electric to-accent-deep bg-clip-text text-transparent">Me</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight text-accent-electric">
+              About Me
             </h2>
 
             <div className="space-y-6 text-text-muted leading-relaxed text-lg">

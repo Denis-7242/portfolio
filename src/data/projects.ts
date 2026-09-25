@@ -7,10 +7,7 @@ export interface ProjectMetadata {
   featured?: boolean;
 }
 
-/**
- * Mapping of GitHub repository names to custom metadata.
- * Categories: 'Full Stack', 'Mobile', 'AI', 'Cybersecurity'
- */
+
 export const projectsMetadata: Record<string, ProjectMetadata> = {
   // --- WEB APPLICATION PROJECTS ---
   'Introduction-to-Java-Applets': {
@@ -38,7 +35,7 @@ export const projectsMetadata: Record<string, ProjectMetadata> = {
     featured: true,
   },
 
-  // --- MOBILE APPLICATION PROJECTS (Dart/Flutter) ---
+ 
   'Flutter-Auth-app': {
     repoName: 'Flutter-Auth-app',
     customTitle: 'Secure Auth System',
@@ -140,7 +137,7 @@ export const projectsMetadata: Record<string, ProjectMetadata> = {
     featured: true,
   },
 
-  // --- FULL STACK JAVA APPS ---
+  
   'spring-boot-inventory-system': {
     repoName: 'spring-boot-inventory-system',
     customTitle: 'Enterprise Inventory Manager',

@@ -105,9 +105,9 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-foreground"
           >
-            Technical <span className="text-accent-electric">Expertise</span>
+                        Technical Expertise
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
