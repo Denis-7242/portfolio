@@ -216,7 +216,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <DesignBadge variant="accent" className="px-4 py-1.5 text-[10px]">
+            <DesignBadge
+              variant="accent"
+              className="px-4 py-1.5 text-[10px] flex items-center gap-2"
+            >
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bg-deep opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-bg-deep"></span>
+              </span>
               Available for New Opportunities
             </DesignBadge>
           </motion.div>
