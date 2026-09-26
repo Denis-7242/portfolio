@@ -273,12 +273,13 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="px-8 py-4 border-transparent bg-transparent hover:bg-bg-surface/10 rounded-xl transition-all duration-300"
+              className="group px-8 py-4 border-white/10 bg-transparent text-text-primary rounded-xl transition-all duration-300 hover:border-accent-electric/50 hover:bg-accent-electric/5 hover:text-accent-electric"
               onClick={() => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               Contact Me
+              <ArrowRight className="ml-2 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </Button>
           </div>
         </motion.div>
