@@ -37,7 +37,7 @@ const Projects = ({ initialProjects }: ProjectsProps) => {
     <section id="projects" className="py-24 relative overflow-hidden bg-bg-deep text-text-primary scroll-mt-16">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-electric/5 blur-[120px] rounded-full" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

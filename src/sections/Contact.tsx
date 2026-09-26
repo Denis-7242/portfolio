@@ -114,7 +114,7 @@ const Contact = () => {
             <DesignCard className="flex flex-col h-full group relative overflow-hidden">
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">
-                  <div className="p-3 rounded-xl bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-bg-deep transition-all duration-300">
+                  <div className="p-3 rounded-xl bg-blue-600/10 text-blue-600 group-hover:bg-blue-600 group-hover:text-bg-deep transition-all duration-300">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <DesignBadge variant="accent">Based In</DesignBadge>
@@ -126,12 +126,12 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-auto">
-                  <div className="block w-full py-4 px-6 rounded-xl bg-blue-500/10 text-blue-400 font-bold text-center border border-blue-500/20 transition-all group-hover:bg-blue-500/20">
+                  <div className="block w-full py-4 px-6 rounded-xl bg-blue-600/10 text-blue-500 font-bold text-center border border-blue-600/20 transition-all group-hover:bg-blue-600/20">
                     Nairobi, Kenya
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full" />
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-blue-600/10 blur-3xl rounded-full" />
             </DesignCard>
           </motion.div>
         </div>

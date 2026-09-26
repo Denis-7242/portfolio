@@ -26,7 +26,7 @@ export const DesignCard = ({ children, className, hoverable = true }: DesignCard
       )}
     >
       {/* Inner Gradient Glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent pointer-events-none" />
       <div className="relative z-10">{children}</div>
     </motion.div>
   );

@@ -176,7 +176,7 @@ const Hero = () => {
     document.body.appendChild(div);
     div.className = "text-slate-500";
     const muted = getComputedStyle(div).color;
-    div.className = "text-blue-500";
+    div.className = "text-blue-600";
     const primary = getComputedStyle(div).color;
     document.body.removeChild(div);
     setThemeColors([muted, muted, muted, muted, primary]);
