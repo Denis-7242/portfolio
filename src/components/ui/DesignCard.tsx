@@ -14,19 +14,19 @@ export const DesignCard = ({ children, className, hoverable = true }: DesignCard
   return (
     <motion.div
       whileHover={hoverable ? {
-        y: -5,
+        y: -4,
         borderColor: "var(--color-accent-electric)",
-        boxShadow: "0 0 20px rgba(0, 209, 255, 0.15)"
+        boxShadow: "0 0 20px rgba(var(--color-accent-electric), 0.15)"
       } : {}}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      transition={{ type: "spring", stiffness: 260, damping: 26 }}
       className={cn(
         "relative group p-6 rounded-2xl transition-all duration-300",
-        "bg-transparent border-transparent shadow-none",
+        "bg-white/[0.02] border border-white/[0.08] shadow-none",
         className
       )}
     >
       {/* Inner Gradient Glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-electric/5 to-transparent pointer-events-none" />
       <div className="relative z-10">{children}</div>
     </motion.div>
   );

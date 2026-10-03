@@ -19,11 +19,11 @@ export const DesignStatTile = ({ label, value, subtext, className }: DesignStatT
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "flex flex-col gap-1 p-4 rounded-xl bg-transparent",
+        "flex flex-col gap-1 p-4 rounded-xl bg-white/[0.02] border border-white/[0.08]",
         className
       )}
     >
-      <span className="text-[10px] font-mono uppercase tracking-widest text-text-muted">
+      <span className="text-[11px] font-mono uppercase tracking-[0.15em] text-text-muted">
         {label}
       </span>
       <div className="text-2xl font-bold text-text-primary font-sans">

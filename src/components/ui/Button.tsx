@@ -17,8 +17,8 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const variants = {
-    primary: 'bg-accent-electric text-bg-deep hover:opacity-90 shadow-lg shadow-accent-electric/20',
-    secondary: 'bg-accent-deep text-white hover:opacity-90 shadow-lg shadow-accent-deep/20',
+    primary: 'bg-accent-electric text-bg-deep hover:opacity-90 shadow-lg shadow-accent-electric/10 hover:ring-2 hover:ring-accent-electric/20',
+    secondary: 'bg-accent-deep text-white hover:opacity-90 shadow-lg shadow-accent-deep/10 hover:ring-2 hover:ring-accent-deep/20',
     outline: 'border-2 border-accent-electric/50 text-accent-electric hover:border-accent-electric hover:bg-accent-electric hover:text-bg-deep',
     ghost: 'text-text-muted hover:text-text-primary hover:bg-bg-surface/20',
   };
@@ -30,7 +30,7 @@ export const Button = ({
   };
 
   const commonClasses = cn(
-    'rounded-xl font-medium transition-all duration-300 active:scale-95 hover:scale-105 inline-flex items-center justify-center',
+    'rounded-xl font-medium transition-all duration-200 active:scale-95 hover:scale-[1.02] inline-flex items-center justify-center',
     variants[variant],
     sizes[size],
     className
